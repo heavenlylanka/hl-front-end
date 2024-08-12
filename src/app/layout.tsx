@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter as FontSans } from "next/font/google"
 
 import { Outfit } from "next/font/google";
+import { cn } from "@/lib/utils"
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,6 +19,11 @@ export const metadata: Metadata = {
   },
 };
 
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -30,7 +37,10 @@ export default function RootLayout({
           rel="stylesheet"
         ></link>
       </head>
-      <body className={outfit.className}>
+      <body className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}>
         <div className="flex flex-col min-h-[100dvh]">
           <Navbar />
           {children}

@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "./ui/button";
+import { NavigationMenuDemo } from "@/components/NavLinks";
+import { Icons } from "@/components/icons"
 
 type NavItem = {
   label: string;
@@ -114,7 +116,7 @@ function Navbar() {
                 />
               </a>
             </div>
-            <ul className="hidden lg:flex ml-14 space-x-12 text-black">
+            {/* <ul className="hidden lg:flex ml-14 space-x-12 text-black">
               {navItems.map((item, index) => (
                 <li
                   key={index}
@@ -148,8 +150,15 @@ function Navbar() {
                   </div>
                 </li>
               ))}
-            </ul>
-            <Button asLink={true} to={"/call-us"} >Call Us</Button>
+            </ul> */}
+            <NavigationMenuDemo/>
+            <Button
+              asLink={true}
+              to={"/about/#allMembers"}
+              Icon={Icons.phone}
+            >
+              Call Us
+            </Button>
             <div className="lg:hidden md:flex flex-col justify-end">
               <HamburgerMenu
                 isOpen={mobileDrawerOpen}

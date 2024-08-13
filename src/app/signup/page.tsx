@@ -1,7 +1,7 @@
 import SignUpForm from '@/components/SignUpForm'
 import React from 'react'
-import bg_image from '@/Assets/signup_bg.jpg'
-import Image from 'next/image'
+
+
 
 const page = () => {
   return (

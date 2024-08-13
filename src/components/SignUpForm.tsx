@@ -2,12 +2,12 @@ import React from 'react'
 
 const SignUpForm = () => {
   return (
-    <div className=' 2xl:w-[673px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center py-[100px]
-    max-2xl:w-[445px] max-2xl:py-[66px] max-xl:w-[445px]'>
+    <div className=' w-[505px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center my-[100px] py-[30px]
+    '>
     <h3 className='text-center text-[31px]'>Sign up to</h3>
     <span className='pt-2 text-center text-[16px]'>Heavenly Lanka Vacations</span>
 
-    <div className='w-[480px] content-center flex flex-col justify-center
+    <div className='w-[400px] content-center flex flex-col justify-center
     max-2xl:w-[420px]'>
         
     <div className='flex flex-col gap-0 pt-5'>

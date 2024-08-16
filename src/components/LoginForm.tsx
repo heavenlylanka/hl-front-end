@@ -1,13 +1,14 @@
-"use client"; // Add this line at the top
+"use client"; // Ensure this is a client component
+
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation'; // Import from next/navigation
 
-interface LoginFormProps {}
-
-const LoginForm: React.FC<LoginFormProps> = () => {
+const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState<string>('');
+  const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -15,17 +16,14 @@ const LoginForm: React.FC<LoginFormProps> = () => {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', {
         email,
-        password
+        password,
       });
 
-      // Assuming your backend returns a JWT token
       const token: string = response.data.token;
-      
-      // Store the token in localStorage or cookies
       localStorage.setItem('token', token);
-      
-      // Redirect or do something on successful login
-      console.log('Login successful');
+
+      // Navigate to profile page
+      router.push('/profile'); // Use the router from next/navigation
     } catch (error) {
       setError('Invalid username or password');
     }
@@ -61,7 +59,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
           />
         </div>
 
-        <button type="submit" className="h-12 text-white bg-gray-800 hover:bg-gray-900 mt-6 border-none text-[16px] font-medium rounded-lg cursor-pointer">
+        <button type="submit" className="h-12 text-white bg-black mt-6 border-none text-[16px] font-medium rounded-lg cursor-pointer">
           Login
         </button>
       </form>

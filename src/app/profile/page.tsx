@@ -1,7 +1,7 @@
 "use client"; // Add this line at the top
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+//test
 const Page: React.FC = () => {
   const [user, setUser] = useState<{ email: string; name: string } | null>(null);
   const [error, setError] = useState<string>('');

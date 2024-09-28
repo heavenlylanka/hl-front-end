@@ -1,236 +1,109 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import clsx from "clsx";
-import { usePathname, useRouter } from "next/navigation";
-import Button from "./ui/button";
-import { NavigationMenuDemo } from "@/components/NavLinks";
-import { Icons } from "@/components/icons"
+"use client"; // Add this line at the top
+import React, { useState } from 'react';
+import { IoCallOutline } from "react-icons/io5";
+import Link from 'next/link';
 
-type NavItem = {
-  label: string;
-  href: string;
-  isSeperatePage?: boolean | undefined;
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <nav className="bg-white border-gray-200 dark:bg-gray-900 w-full fixed top-0 left-0">
+            <div className="w-full flex flex-wrap items-center justify-between mx-auto p-4">
+                <Link href="https://flowbite.com/" legacyBehavior>
+                    <a className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src="Logo.svg" className="h-8" alt="Hevanly Logo" />
+                        
+                    </a>
+                </Link>
+                <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button
+                  type="button"
+                  className="flex items-center text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                  Call Us
+                  <IoCallOutline className="ml-2" />
+              </button>
+                    <button
+                        onClick={toggleMenu}
+                        data-collapse-toggle="navbar-cta"
+                        type="button"
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        aria-controls="navbar-cta"
+                        aria-expanded={isOpen}
+                    >
+                        <span className="sr-only">Open main menu</span>
+                        <svg
+                            className="w-5 h-5"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 17 14"
+                        >
+                            <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M1 1h15M1 7h15M1 13h15"
+                            />
+                        </svg>
+                    </button>
+                </div>
+                <div className={`${isOpen ? 'block' : 'hidden'} items-center justify-between w-full md:flex md:w-auto md:order-1`} id="navbar-cta">
+                    <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <Link href="/" legacyBehavior>
+                                <a
+                                    className="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500"
+                                    aria-current="page"
+                                >
+                                    Home
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#" legacyBehavior>
+                                <a className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Our Tours
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#" legacyBehavior>
+                                <a className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Destinations
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#" legacyBehavior>
+                                <a className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Things To Know
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#" legacyBehavior>
+                                <a className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    About Us
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="#" legacyBehavior>
+                                <a className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Contact Us
+                                </a>
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
 };
 
-const navItems: NavItem[] = [
-  { label: "Home", href: "home" },
-  { label: "Our Tours", href: "our-tours" },
-  { label: "Destinations", href: "destinations", isSeperatePage: true },
-  { label: "Things to Know", href: "things-to-konw" },
-  { label: "About Us", href: "about-us" },
-  { label: "Contact", href: "contact" },
-];
-
-function Navbar() {
-  const router = useRouter();
-  const pathName = usePathname();
-  const pathArray = pathName.split("/").map((item) => {
-    if (item === "") return "home";
-    return item;
-  });
-  const currentPath = pathArray[pathArray.length - 1];
-  const scrolltoHash = function (element_id: string) {
-    const element = document.getElementById(element_id);
-
-    if (!element) {
-      globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    }
-
-    element?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "nearest",
-    });
-  };
-
-  const elementIsVisibleInViewport = (
-    el: HTMLElement | null,
-    partiallyVisible = true
-  ) => {
-    if (!el) return false;
-    const { top, left, bottom, right } = el.getBoundingClientRect();
-    const { innerHeight, innerWidth } = window;
-    return partiallyVisible
-      ? ((top > 0 && top < innerHeight) ||
-          (bottom > 0 && bottom < innerHeight)) &&
-          ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
-      : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-  };
-
-  const setActiveLinks = () => {
-    if (elementIsVisibleInViewport(document.getElementById("home"))) {
-      setActiveLink("Home");
-    }
-    if (elementIsVisibleInViewport(document.getElementById("gallery"))) {
-      setActiveLink("Gallery");
-    }
-    if (elementIsVisibleInViewport(document.getElementById("about"))) {
-      setActiveLink("About");
-    }
-    if (elementIsVisibleInViewport(document.getElementById("contact"))) {
-      setActiveLink("Contact");
-    }
-  };
-
-  //changed initial state value otherwise 'Home' is set as activeLink in about page after a refresh
-  const [activeLink, setActiveLink] = useState(
-    currentPath.charAt(0).toUpperCase() + currentPath.slice(1)
-  );
-
-  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-
-  const toggleNavbar = () => {
-    setMobileDrawerOpen(!mobileDrawerOpen);
-  };
-
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("scroll", setActiveLinks);
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  return (
-    <nav className={"flex-[0_0_auto] sticky top-0 z-50 flex justify-center"}>
-      <div className="absolute w-full backdrop-blur-lg bg-white">
-        <div className=" relative lg:text-[16px] w-full">
-          <div className="py-4 px-4 md:px-16 md:py-3 flex justify-between items-center">
-            <div className="flex items-center flex-shrink-0">
-              <a href="/#">
-                <img
-                  className={"mr-2 duration-500 h-8 md:h-[48px]"}
-                  src="/Logo.svg"
-                  alt="Logo"
-                />
-              </a>
-            </div>
-            {/* <ul className="hidden lg:flex ml-14 space-x-12 text-black">
-              {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  className={
-                    activeLink == item.label
-                      ? "bg-text-gradient text-[#fef837] bg-clip-text"
-                      : undefined
-                  }
-                >
-                  <div
-                    className="hover:cursor-pointer nav-link"
-                    onClick={() => {
-                      if (!item.isSeperatePage && currentPath === "home") {
-                        scrolltoHash(item.href);
-                      } else {
-                        router.push(
-                          item.isSeperatePage
-                            ? `/${item.href}`
-                            : `/#${item.href}`
-                        );
-                      }
-                      if (item.label == "Gallery") {
-                        window.location.href = "/gallery";
-                      } else {
-                        scrolltoHash(item.href);
-                      }
-                      setActiveLink(item.label);
-                    }}
-                  >
-                    {item.label}
-                  </div>
-                </li>
-              ))}
-            </ul> */}
-            <NavigationMenuDemo/>
-            <Button
-              asLink={true}
-              to={"/about/#allMembers"}
-              Icon={Icons.phone}
-            >
-              Call Us
-            </Button>
-            <div className="lg:hidden md:flex flex-col justify-end">
-              <HamburgerMenu
-                isOpen={mobileDrawerOpen}
-                toggleMenu={toggleNavbar}
-              />
-            </div>
-          </div>
-          {mobileDrawerOpen && (
-            <div className="fixed right-0 z-20 backdrop-blur-lg bg-black text-white bg-opacity-50 w-full pt-2 flex flex-col justify-center lg:hidden">
-              <div className="">
-                <ul>
-                  {navItems.map((item, index) => (
-                    <li
-                      key={index}
-                      className={
-                        activeLink == item.label
-                          ? "bg-text-gradient text-[#fef837] bg-clip-text"
-                          : undefined
-                      }
-                    >
-                      <div
-                        className="hover:cursor-pointer nav-link"
-                        onClick={() => {
-                          if (!item.isSeperatePage && currentPath === "home") {
-                            scrolltoHash(item.href);
-                          } else {
-                            router.push(
-                              item.isSeperatePage
-                                ? `/${item.href}`
-                                : `/#${item.href}`
-                            );
-                          }
-                          setActiveLink(item.label);
-                        }}
-                      >
-                        {item.label}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </nav>
-  );
-}
-
 export default Navbar;
-
-const HamburgerMenu = (props: { toggleMenu: () => void; isOpen: boolean }) => (
-  <button
-    onClick={props.toggleMenu}
-    className="relative w-6 h-4 flex flex-col justify-between items-center group"
-  >
-    <span
-      className={clsx(
-        "block w-full h-0.5 bg-white transform transition duration-300",
-        { "rotate-45 translate-y-1.5": props.isOpen }
-      )}
-    ></span>
-    <span
-      className={clsx("block w-full h-0.5 bg-white transition duration-300", {
-        "opacity-0": props.isOpen,
-      })}
-    ></span>
-    <span
-      className={clsx(
-        "block w-full h-0.5 bg-white transform transition duration-300",
-        { "-rotate-45 -translate-y-1.5": props.isOpen }
-      )}
-    ></span>
-  </button>
-);

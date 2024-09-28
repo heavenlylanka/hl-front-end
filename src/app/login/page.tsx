@@ -1,38 +1,28 @@
+import LoginForm from '@/components/LoginForm';
+import React from 'react';
 
-
-import LoginForm from '@/components/LoginForm'
-import React from 'react'
-
-const page = () => {
+const Page = () => {
   return (
+    <div className="min-h-screen bg-cover bg-center bg-[url('/assets/login_bg.png')] mx-4 mt-24 px-6 rounded-3xl  flex flex-col-reverse lg:flex-row lg:items-start justify-between">
+      
+      <div className="w-full lg:w-auto flex justify-center mt-10 lg:mt-0">
+        <LoginForm />
+      </div>
 
-    <div className=" min-h-screen bg-cover bg-center bg-[url('../assets/login_bg.jpg')] 
-    mx-[10px] mt-24 px-[60px] rounded-[60px] mb-[300px] flex items-center justify-between
-    ">
-
-        <div className=''>
-            <LoginForm/>
-        </div> 
-        
-        <div className=' h-screen flex-col flex items-end pt-16 w-[475px]
-        '>
-            <h1 className='text-white text-[64px] font-semibold
-            max-2xl:text-[52px]'>
-                Welcome Back,
-            </h1>
-            <div className='text-[64px] font-medium text-white h-[96px] bg-[#F57552]
-            rounded-[36px] flex justify-center px-5
-            max-2xl:text-[52px] max-2xl:h-[76px] max-2xl:rounded-[28px]'>
-                Traveler!
-            </div>
-
-            <p className='text-white text-[24px] pt-6  flex text-end'>
-            Log in to your account to access your personalized travel dashboard.
-            </p>
-            
+      <div className="flex flex-col items-center lg:items-end pt-16 w-full lg:w-[475px] text-center lg:text-right">
+        <h1 className="text-white text-4xl lg:text-5xl font-semibold">
+          Welcome Back,
+        </h1>
+        <div className="text-4xl lg:text-5xl font-medium text-white bg-[#F57552] rounded-[36px] px-6 py-2 mt-4">
+          Traveler!
         </div>
-</div>
-  )
+        <p className="text-white text-lg lg:text-xl pt-10 mt-10">
+          Log in to your account to access your personalized travel dashboard.
+        </p>
+      </div>
+      
+    </div>
+  );
 }
 
-export default page
+export default Page;

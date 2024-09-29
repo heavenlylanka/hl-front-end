@@ -1,52 +1,106 @@
-import React from 'react'
+"use client"; // Add this line at the top
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const SignUpForm = () => {
+const SignUpForm: React.FC = () => {
+  const [email, setEmail] = useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [message, setMessage] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8080/api/auth/register', {
+        email,
+        name,
+        password,
+      });
+
+      setMessage("User registered successfully");
+      setError(null);
+    } catch (error) {
+      setMessage(null);
+      setError("User already exists or there was an error registering");
+    }
+  };
+
   return (
-    <div className=' w-[505px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center my-[100px] py-[30px]
-    '>
-    <h3 className='text-center text-[31px]'>Sign up to</h3>
-    <span className='pt-2 text-center text-[16px]'>Heavenly Lanka Vacations</span>
+    <div className='w-full lg:w-[505px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center my-12 lg:my-[100px] p-6 lg:py-[30px]'>
+      <h3 className='text-center text-2xl lg:text-[31px] font-semibold'>Sign up to</h3>
+      <span className='pt-2 text-center text-lg lg:text-[16px] font-medium'>Heavenly Lanka Vacations</span>
 
-    <div className='w-[400px] content-center flex flex-col justify-center
-    max-2xl:w-[420px]'>
-        
-    <div className='flex flex-col gap-0 pt-5'>
-        <span className='text-[16px]'>Email</span>
-        <input type="text" className='my-2 h-[62px] rounded-lg border border-gray-600 text-gray-900 text-sm w-full p-2.5
-        max-2xl:h-[50px]' placeholder='Enter your email'/>
+      <form className='w-full lg:w-[400px] flex flex-col justify-center pt-6 lg:pt-8' onSubmit={handleSubmit}>
+        <div className='flex flex-col gap-1'>
+          <label className='text-[16px] font-medium'>Email</label>
+          <input
+            type="email"
+            className='h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5'
+            placeholder='Enter your email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className='flex flex-col gap-1 pt-4'>
+          <label className='text-[16px] font-medium'>Name</label>
+          <input
+            type="text"
+            className='h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5'
+            placeholder='Enter your name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className='flex flex-col gap-1 pt-4'>
+          <label className='text-[16px] font-medium'>Password</label>
+          <input
+            type="password"
+            className='h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5'
+            placeholder='Enter your password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className='flex flex-col gap-1 pt-4'>
+          <label className='text-[16px] font-medium'>Confirm Password</label>
+          <input
+            type="password"
+            className='h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5'
+            placeholder='Confirm your password'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <button type="submit" className="h-12 lg:h-[62px] text-white bg-gray-800 hover:bg-gray-900 mt-6 lg:mt-8 text-[16px] font-medium rounded-lg cursor-pointer">
+          Register
+        </button>
+      </form>
+
+      {message && <div className="text-orange-500 text-center mt-4">{message}</div>}
+      {error && <div className="text-red-500 text-center mt-4">{error}</div>}
+
+      <div className='flex pt-4 text-[16px]'>
+        <p className='font-light'>Already have an Account?</p>
+        <a className='font-semibold pl-1 cursor-pointer text-blue-600' href='/login'>Log In</a>
+      </div>
     </div>
-
-    <div className='flex flex-col gap-0 pt-5'>
-        <span className='text-[16px]'>Username</span>
-        <input type="text" className='my-2 h-[62px] rounded-lg border border-gray-600 text-gray-900 text-sm w-full p-2.5
-        max-2xl:h-[50px]' placeholder='Enter your username'/>
-    </div>
-
-    <div className='flex flex-col gap-0 pt-5'>
-        <span className='text-[16px]'>Password</span>
-        <input type="text" className='my-2 h-[62px] rounded-lg border border-gray-600 text-gray-900 text-sm w-full p-2.5
-        max-2xl:h-[50px]' placeholder='Enter your password'/>
-    </div>
-
-    <div className='flex flex-col gap-0 pt-5'>
-        <span className='text-[16px]'>Confirm Password</span>
-        <input type="text" className='my-2 h-[62px] rounded-lg border border-gray-600 text-gray-900 text-sm w-full p-2.5
-        max-2xl:h-[50px]' placeholder='Confirm your password'/>
-    </div>
-
-    
-
-    <button className=" h-[62px] text-white bg-black mt-8 border-none text-[16px] font-medium rounded-lg cursor-pointer
-    max-2xl:h-[50px]">Register</button>
-    </div>
-
-    <div className='flex pt-4 text-[16px]'>
-        <p className='font-light'>Already have an Account ?</p>
-        <p className='font-semibold pl-1'>Log in</p>
-    </div>
-    
-</div>
-  )
+  );
 }
 
-export default SignUpForm
+export default SignUpForm;

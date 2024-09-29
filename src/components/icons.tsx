@@ -220,13 +220,14 @@ export const Icons = {
       width={24}
       height={24}
       fill="none"
+       
       {...props}
     >
       <path
-        stroke="#000"
+        stroke="#fff"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeOpacity={0.5}
+        strokeOpacity={0.8}
         strokeWidth={2}
         d="m6 17 5-5-5-5m7 10 5-5-5-5"
       />

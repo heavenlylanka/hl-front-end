@@ -5,6 +5,7 @@ import PhotoCollage from "@/components/PhotoCollage";
 import PopPackages from "@/components/PopPackages";
 import SriLankaMap from "@/components/SriLankaMap";
 import Navbar from "@/components/Navbar";
+import SubmitForm from "@/components/SubmitForm";
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
         <PopPackages/>
         <SriLankaMap/>
         <PhotoCollage/>
+        <SubmitForm/>
       </section>
     </main>
   );

@@ -66,7 +66,7 @@ const Page: React.FC = () => {
       </div>
       */}
       <SidebarDemo>
-        <div className='flex-col mx-8 bg'>
+        <div className='flex-col mx-8 md:w-full lg:mr-32'>
           <h1 className="text-[30px] font-medium">Edit Profile</h1>
 
           <div className='flex-col border border-gray-300 rounded-2xl p-4'>
@@ -91,9 +91,10 @@ const Page: React.FC = () => {
             </div>
           </div>
 
-          {/* Personal Info */}
+          {/* Personal Info form */}
 
-          <div className='flex-col mt-6 border border-gray-300 rounded-2xl p-4
+          <div className='flex-col mt-6 border border-gray-300 rounded-2xl p-4 
+          lg:pr-28 xl:pr-64 2xl:pr-72
           '>
             <h1 className='font-medium text-[20px]'>Personal Info</h1>
             <div>

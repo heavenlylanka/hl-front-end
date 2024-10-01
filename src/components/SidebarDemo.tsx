@@ -52,8 +52,8 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
         "h-auto" // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
-      <Sidebar open={open} setOpen={setOpen} animate={false}>
-        <SidebarBody className="justify-between gap-10 ">
+      <Sidebar open={open} setOpen={setOpen}>
+        <SidebarBody className="justify-between gap-10 h-screen pb-16">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden pt-2 ">
             <>
               <Logo />

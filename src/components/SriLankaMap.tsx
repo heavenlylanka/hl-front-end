@@ -12,10 +12,10 @@ const QwigleyFont = Qwigley({
 
 function SriLankaMap() {
   return (
-    <div className="container mx-auto px-4 py-16 flex flex-row items-center">
-      <div className="text-center max-w-3xl mb-12">
+    <div className="container mx-auto px-4 py-16 flex flex-col lg:flex-row justify-center items-center lg:gap-8">
+      <div className="text-center max-w-3xl mb-12  lg:text-right lg:max-w-[530px]">
       
-        <h1 className={`${QwigleyFont.className} text-6xl text-black`}>Sri Lanka</h1>
+        <h1 className={`${QwigleyFont.className} text-7xl md:text-8xl lg:text-9xl text-black`}>Sri Lanka</h1>
         <p className="text-3xl text-orange-400 mb-6">the golden paradise</p>
         <p className="text-lg text-black">
           Sri Lanka is blessed with breathtaking natural beauty,

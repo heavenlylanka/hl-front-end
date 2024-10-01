@@ -8,7 +8,7 @@ import heroBackground from "../../public/assets/hero_background.png";
 
 function Hero() {
   return (
-    <div className="relative w-full h-[600px] rounded-3xl overflow-hidden mt-20">
+    <div className="relative bg-cover bg-center h-auto min-h-[650px] lg:min-h-[680px] mx-2 md:mx-3 rounded-3xl overflow-hidden mt-20">
       <Image
         src={heroBackground} 
         alt="Sri Lankan elephants in the wild"

@@ -49,7 +49,7 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
     <div
       className={cn(
         "rounded-md flex flex-col md:flex-row bg-white dark:bg-neutral-800 w-full flex-1 max-w-full mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
-        "h-dvh" // for your use case, use `h-screen` instead of `h-[60vh]`
+        "h-auto" // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
       <Sidebar open={open} setOpen={setOpen} animate={false}>

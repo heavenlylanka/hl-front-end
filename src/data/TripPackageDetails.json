@@ -1,0 +1,161 @@
+{
+    "tourPackages": [
+      {
+        "id": 1,
+        "title": "Cultural Sri Lanka 14 Days - Premium",
+        "image": "/images/sigiriya-rock-fortress.jpg",
+        "duration": "14 Days",
+        "tourInfo": {
+          "transportation": "Private Air Conditioned Coach, Bicycles (Cycle Tour)",
+          "accommodation": "4 to 5 Star Hotels (Twin Sharing, Half-Board Basis) \"13 Nights\"",
+          "meals": "13 Breakfasts, 13 Dinners and 1 lunch (Hands on Sri Lankan Culinary Experience)",
+          "admissionFee": "All entrance fees to attractions included",
+          "guide": "GOVT Accredited National Tour Guide Lecturer or Chauffer - Guide",
+          "minimumAge": 10
+        },
+        "overview": "Embark on a captivating \"14-Day Sri Lanka Tour\" with the Sri Lanka Tourism Development Authority, designed to immerse you in the rich cultural heritage and breathtaking natural landscapes of this beautiful island. Your journey begins in the charming coastal town of Negombo, takes you to the historic city of Kandy, and ends on the vibrant shores of Bentota. This thoughtfully curated tour offers a comprehensive exploration of Sri Lanka, guided by experienced local experts. Discover the island's deep-rooted history, marvel at stunning architecture, and engage in a variety of activities that showcase the true essence of Sri Lanka. Whether you're exploring ancient temples, enjoying scenic train rides, or relaxing on pristine beaches, this tour promises an unforgettable experience.",
+        "tripHighlights": [
+          "Visit the Golden Cave temple - Dambulla",
+          "Village Cycle Tour - Girithale",
+          "Visit the ancient Kingdom - Polonnaruwa",
+          "Visit the Rock Fortress - Sigiriya",
+          "Guided safari - Minneriya/Kaudulla/Hurulu Eco Park",
+          "Visit a Spice garden - Mathale",
+          "Visit the Temple of the Tooth - Kandy",
+          "Visit a Gem museum - Kandy",
+          "Attend a Cultural/folk dance show - Kandy",
+          "White water rafting - Kitulgala",
+          "Boat safari - Madu river",
+          "Visit a Moonstone mine - Meetiyagoda",
+          "Guided city tour - Colombo"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Sri Lanka Wildlife 10 Days - Ultimate",
+        "image": "/images/yala-national-park.jpg",
+        "duration": "10 Days",
+        "tourInfo": {
+          "transportation": "Private Air Conditioned Coach, Safari Jeeps",
+          "accommodation": "4 to 5 Star Hotels and Eco Lodges (Twin Sharing, Full-Board Basis) \"9 Nights\"",
+          "meals": "9 Breakfasts, 9 Lunches, 9 Dinners",
+          "admissionFee": "All entrance fees to national parks and attractions included",
+          "guide": "GOVT Accredited National Tour Guide Lecturer and Wildlife Experts",
+          "minimumAge": 12
+        },
+        "overview": "Experience the incredible biodiversity of Sri Lanka on this 10-day wildlife adventure. From the lush rainforests of Sinharaja to the sprawling plains of Yala National Park, this tour offers unparalleled opportunities to observe exotic wildlife in their natural habitats. Witness herds of elephants, elusive leopards, vibrant bird species, and much more. Led by expert naturalists, this journey combines luxury eco-lodges with thrilling safari experiences, making it perfect for nature enthusiasts and wildlife photographers alike.",
+        "tripHighlights": [
+          "Sinharaja Rainforest trek",
+          "Elephant watching at Udawalawe National Park",
+          "Leopard safari at Yala National Park",
+          "Bird watching at Bundala National Park",
+          "Whale watching excursion in Mirissa",
+          "Visit to Pinnawala Elephant Orphanage",
+          "Guided night walk in Kitulgala",
+          "Boat safari on Madu River"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Sri Lanka Unveiled 14 Days - Classic",
+        "image": "/images/galle-fort.jpg",
+        "duration": "14 Days",
+        "tourInfo": {
+          "transportation": "Private Air Conditioned Coach, Train ride",
+          "accommodation": "3 to 4 Star Hotels (Twin Sharing, Bed & Breakfast Basis) \"13 Nights\"",
+          "meals": "13 Breakfasts, 5 Dinners",
+          "admissionFee": "All entrance fees to attractions included",
+          "guide": "GOVT Accredited National Tour Guide Lecturer",
+          "minimumAge": 8
+        },
+        "overview": "Discover the diverse wonders of Sri Lanka on this comprehensive 14-day journey. From ancient cities to colonial fortresses, misty mountains to sun-kissed beaches, this tour offers a perfect blend of history, culture, and natural beauty. Experience the warmth of Sri Lankan hospitality as you traverse the island, uncovering hidden gems and iconic landmarks alike. This classic itinerary is ideal for first-time visitors seeking an authentic and well-rounded Sri Lankan experience.",
+        "tripHighlights": [
+          "Explore the ancient city of Anuradhapura",
+          "Climb the Sigiriya Rock Fortress",
+          "Visit the Temple of the Tooth in Kandy",
+          "Scenic train ride to Nuwara Eliya",
+          "Tea plantation tour in the hill country",
+          "Safari at Yala National Park",
+          "Walk the ramparts of Galle Fort",
+          "Relax on the beaches of Bentota",
+          "City tour of Colombo"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Heavenly Lanka 9 Days - Family",
+        "image": "/images/elephant-orphanage.jpg",
+        "duration": "9 Days",
+        "tourInfo": {
+          "transportation": "Private Air Conditioned Minivan",
+          "accommodation": "Family-friendly 4 Star Hotels (Family Rooms, Half-Board Basis) \"8 Nights\"",
+          "meals": "8 Breakfasts, 8 Dinners, 2 Lunches",
+          "admissionFee": "All entrance fees to attractions included",
+          "guide": "Family-oriented GOVT Accredited National Tour Guide",
+          "minimumAge": 5
+        },
+        "overview": "Create lasting memories on this 9-day family adventure across Sri Lanka. Designed with both kids and adults in mind, this tour combines educational experiences with fun-filled activities. From wildlife encounters to interactive cultural experiences, every day brings new discoveries. Stay in family-friendly accommodations and travel at a comfortable pace, ensuring a stress-free and enjoyable vacation for all ages.",
+        "tripHighlights": [
+          "Elephant feeding at Pinnawala Elephant Orphanage",
+          "Interactive spice garden tour",
+          "Mini trek in Horton Plains National Park",
+          "Train ride through tea plantations",
+          "Turtle hatchery visit in Kosgoda",
+          "Mask painting workshop in Ambalangoda",
+          "Galle Fort treasure hunt",
+          "Beach time in Bentota"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Discover Sri Lanka 10 Days - Premium",
+        "image": "/images/tea-plantations.jpg",
+        "duration": "10 Days",
+        "tourInfo": {
+          "transportation": "Luxury Air Conditioned Coach, Scenic Train Ride",
+          "accommodation": "5 Star Hotels and Boutique Properties (Twin Sharing, Half-Board Basis) \"9 Nights\"",
+          "meals": "9 Breakfasts, 9 Dinners, 3 Gourmet Lunches",
+          "admissionFee": "All entrance fees to attractions included",
+          "guide": "Expert GOVT Accredited National Tour Guide Lecturer",
+          "minimumAge": 16
+        },
+        "overview": "Indulge in the finest experiences Sri Lanka has to offer on this premium 10-day journey. Stay in luxurious accommodations, savor gourmet cuisine, and enjoy exclusive access to cultural and natural wonders. This carefully crafted itinerary balances iconic sights with off-the-beaten-path experiences, ensuring a sophisticated and authentic exploration of the island. Perfect for discerning travelers seeking comfort, culture, and unforgettable memories.",
+        "tripHighlights": [
+          "Private tour of Sigiriya with an archaeologist",
+          "Exclusive Ceylon tea tasting with a tea sommelier",
+          "Helicopter tour over the central highlands",
+          "Private cooking class with a renowned Sri Lankan chef",
+          "After-hours tour of Temple of the Tooth",
+          "Luxurious spa treatments using native ingredients",
+          "Sunset champagne cruise in Galle Harbor",
+          "Private batik workshop with a master artisan"
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Discover Sri Lanka 10 Days - Classic",
+        "image": "/images/polonnaruwa.jpg",
+        "duration": "10 Days",
+        "tourInfo": {
+          "transportation": "Air Conditioned Coach, Local Train Experience",
+          "accommodation": "3 to 4 Star Hotels (Twin Sharing, Bed & Breakfast Basis) \"9 Nights\"",
+          "meals": "9 Breakfasts, 3 Dinners",
+          "admissionFee": "All entrance fees to main attractions included",
+          "guide": "GOVT Accredited National Tour Guide Lecturer",
+          "minimumAge": 10
+        },
+        "overview": "Experience the essence of Sri Lanka on this classic 10-day tour, perfect for those seeking to explore the island's key highlights. From ancient ruins to colonial gems, lush tea plantations to wildlife-rich national parks, this journey offers a well-rounded introduction to Sri Lanka's diverse attractions. Travel comfortably, stay in good quality accommodations, and enjoy the flexibility to customize certain aspects of your trip. Ideal for first-time visitors or those looking for a balanced mix of culture, nature, and relaxation.",
+        "tripHighlights": [
+          "Climb the ancient rock fortress of Sigiriya",
+          "Explore the medieval capital of Polonnaruwa",
+          "Visit the sacred Temple of the Tooth in Kandy",
+          "Scenic train journey through the hill country",
+          "Tea plantation and factory visit in Nuwara Eliya",
+          "Safari in Yala National Park",
+          "Walking tour of UNESCO-listed Galle Fort",
+          "Boat ride on the Madu River",
+          "Colombo city tour and shopping"
+        ]
+      }
+    ]
+  }

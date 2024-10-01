@@ -7,7 +7,6 @@ import SriLankaMap from "@/components/SriLankaMap";
 import Navbar from "@/components/Navbar";
 import SubmitForm from "@/components/SubmitForm";
 
-
 export default function Home() {
   return (
     <main className="min-h-screen bg-white w-full text-primary-foreground relative">

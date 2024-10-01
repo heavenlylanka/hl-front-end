@@ -3,7 +3,16 @@ import { motion } from "framer-motion";
 import React from "react";
 import { ImagesSlider } from "../../../components/ui/images-slider";
 import Image from "next/image";
+import json_file from "../../../data/TripPackageDetails.json";
 import { Tabs } from "../../../components/ui/tabs";
+
+import PackageCard from "@/components/PackageCard";
+import tigerImage from "../../../../public/assets/tiger.png";
+import trainImage from "../../../../public/assets/train.png";
+import beachImage from "../../../../public/assets/beach.png";
+
+import Link from "next/link";
+
 import {
   Truck,
   Home,
@@ -13,7 +22,7 @@ import {
   Baby,
 } from "lucide-react";
 
-function page({ params }) {
+function Page({ params }) {
   const images = [
     "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -22,7 +31,7 @@ function page({ params }) {
   const DummyContent = () => {
     return (
       <Image
-        src="/linear.webp"
+        src=""
         alt="dummy image"
         width="1000"
         height="1000"
@@ -33,52 +42,74 @@ function page({ params }) {
 
   const tabs = [
     {
-      title: "Product",
-      value: "product",
+      title: "Overview",
+      value: "overview",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Product Tab</p>
-          <DummyContent />
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">Overview</p>
         </div>
       ),
     },
     {
-      title: "Services",
-      value: "services",
+      title: "Itinerary",
+      value: "itinerary",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Services tab</p>
-          <DummyContent />
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">Itinerary</p>
         </div>
       ),
     },
     {
-      title: "Playground",
-      value: "playground",
+      title: "Inclusion/Exclusion",
+      value: "inclusion",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Playground tab</p>
-          <DummyContent />
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">Inclusion/Exclusion</p>
         </div>
       ),
     },
     {
-      title: "Content",
-      value: "content",
+      title: "Map",
+      value: "map",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Content tab</p>
-          <DummyContent />
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">Map</p>
         </div>
       ),
     },
     {
-      title: "Random",
-      value: "random",
+      title: "Hotels",
+      value: "hotels",
       content: (
-        <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-          <p>Random tab</p>
-          <DummyContent />
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">Hotels</p>
+        </div>
+      ),
+    },
+    {
+      title: "FAQs",
+      value: "faqs",
+      content: (
+        <div
+          className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl 
+        font-bold text-white bg-gradient-to-br from-[#EDEDED] to-[#EDEDED]"
+        >
+          <p className="text-orange-500">FAQs</p>
         </div>
       ),
     },
@@ -97,35 +128,64 @@ function page({ params }) {
     {
       icon: <Truck className="w-6 h-6 text-orange-500" />,
       title: "Transportation",
-      description: "Private Air Conditioned Coach Bicycles (Cycle Tour)",
+      description:
+        json_file?.tourPackages?.[params.id]?.tourInfo?.transportation,
     },
     {
       icon: <Home className="w-6 h-6 text-orange-500" />,
       title: "Accomodation",
       description:
-        '4 to 5 Star Hotels (Twin Sharing, Half-Board Basis) "9 Nights"',
+        json_file?.tourPackages?.[params.id]?.tourInfo?.accommodation,
     },
     {
       icon: <UtensilsCrossed className="w-6 h-6 text-orange-500" />,
       title: "Meals",
-      description:
-        "9 Breakfasts, 9 Dinners and 1 lunch (Hands on Sri Lankan Culinary Experience)",
+      description: json_file?.tourPackages?.[params.id]?.tourInfo?.meals,
     },
     {
       icon: <Ticket className="w-6 h-6 text-orange-500" />,
       title: "Admission Fee",
-      description: "All entrance fees to attractions included",
+      description: json_file?.tourPackages?.[params.id]?.tourInfo?.admissionFee,
     },
     {
       icon: <Users className="w-6 h-6 text-orange-500" />,
       title: "Guide",
-      description:
-        "GOVT Accredited National Tour Guide Lecturer or Chauffer - Guide",
+      description: json_file?.tourPackages?.[params.id]?.tourInfo?.guide,
     },
     {
       icon: <Baby className="w-6 h-6 text-orange-500" />,
       title: "Minimum Age",
-      description: "10",
+      description: json_file?.tourPackages?.[params.id]?.tourInfo?.minimumAge,
+    },
+  ];
+
+  const packages = [
+    {
+      id: 1,
+      title: "Sri Lanka Unveiled",
+      duration: "14 Days - Premium",
+      days: 10,
+      peopleRange: "4 - 16",
+      imageSrc: beachImage,
+      color: "bg-yellow-400",
+    },
+    {
+      id: 2,
+      title: "Sri Lanka Unveiled",
+      duration: "14 Days - Premium",
+      days: 10,
+      peopleRange: "4 - 16",
+      imageSrc: trainImage,
+      color: "bg-green-500",
+    },
+    {
+      id: 3,
+      title: "Sri Lanka Unveiled",
+      duration: "14 Days - Premium",
+      days: 10,
+      peopleRange: "4 - 16",
+      imageSrc: tigerImage,
+      color: "bg-[#F57552]",
     },
   ];
 
@@ -147,12 +207,21 @@ function page({ params }) {
             }}
             className="z-50 flex flex-col justify-center items-center"
           >
-            <motion.p className="font-bold text-xl md:text-6xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-              The hero section slideshow <br /> nobody asked for
+            <motion.p
+              className="font-bold text-xl md:text-6xl text-center 
+            bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4"
+            >
+              {json_file?.tourPackages?.[params.id]?.title}
             </motion.p>
-            <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative mt-4">
-              <span>Join now →</span>
-              <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
+            <button
+              className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20
+             text-white mx-auto text-center rounded-full relative mt-4"
+            >
+              <span>Book this trip</span>
+              <div
+                className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent
+               via-emerald-500 to-transparent"
+              />
             </button>
           </motion.div>
         </ImagesSlider>
@@ -168,12 +237,37 @@ function page({ params }) {
 
       {/* animated tabs */}
       <div>
-        <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full  items-start justify-start my-40">
+        <div
+          className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl
+         mx-auto w-full  items-start justify-start my-40"
+        >
           <Tabs tabs={tabs} />
         </div>
+      </div>
+      {/* suggestion packages */}
+      <div className="text-left mb-4 pl-60">
+        <h2 className="text-[#10465E] text-3xl justify-center">
+          Related trips you might interested in
+        </h2>
+      </div>
+      {/* package card */}
+      <div className="flex flex-wrap justify-center gap-8 mb-6">
+        {packages.map((pkg, index) => (
+          <Link key={pkg.id} href={`/tourDetails/${pkg.id}`}>
+            <PackageCard
+              key={index}
+              title={pkg.title}
+              duration={pkg.duration}
+              days={pkg.days}
+              peopleRange={pkg.peopleRange}
+              imageSrc={pkg.imageSrc}
+              color={pkg.color}
+            />
+          </Link>
+        ))}
       </div>
     </div>
   );
 }
 
-export default page;
+export default Page;

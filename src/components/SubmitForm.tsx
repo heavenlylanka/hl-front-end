@@ -41,7 +41,7 @@ function SubmitForm() {
             <label className="text-[16px] font-medium text-white">Name</label>
             <input
               type="text"
-              className="h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5"
+              className="h-12 rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5"
               placeholder="Enter your name"
               required
             />
@@ -50,7 +50,7 @@ function SubmitForm() {
             <label className="text-[16px] font-medium text-white">Email</label>
             <input
               type="email"
-              className="h-12 lg:h-[62px] rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5"
+              className="h-12 rounded-lg border border-gray-300 text-gray-900 text-sm w-full p-3 lg:p-2.5"
               placeholder="Enter your email"
               required
             />

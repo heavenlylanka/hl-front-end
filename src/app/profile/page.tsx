@@ -152,7 +152,7 @@ const Page: React.FC = () => {
             <Button2 className="bg-[#1175BC] h-[32px] mt-8 mb-2 text-white text-[16px] px-4 py-2 rounded-full flex items-center">
               Save Changes
               <img src="/assets/double_arrow_Icon.png" alt="Arrow Right" className="w-3 h-3 ml-2" />
-            </Button2>
+            </Button2> 
           </div>
         </div>
       </SidebarDemo>

@@ -7,6 +7,7 @@ import { Button2 } from '@/components/ui/button2';
 
 
 
+
 //test
 const Page: React.FC = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
@@ -21,6 +22,10 @@ const Page: React.FC = () => {
     const fetchProfileData = async () => {
       try {
         const token = localStorage.getItem('token'); // Assuming you're storing JWT in localStorage
+        if(!token){
+          window.location.href = '/login';
+
+        }
         const response = await axios.get('http://localhost:8080/api/user/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,6 +127,7 @@ const Page: React.FC = () => {
   };
   
   return (  
+    
     <div className="pt-6 my-12">
       <SidebarDemo>
         <div className='flex-col mx-8 md:w-full lg:mr-32 pt-4'>

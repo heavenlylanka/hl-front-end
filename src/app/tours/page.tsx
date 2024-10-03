@@ -8,6 +8,8 @@ import leftArrow from "../../../public/assets/left_arrow.png";
 import rightArrow from "../../../public/assets/right_arrow.png";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function Page() {
   const packages = [
@@ -67,6 +69,8 @@ function Page() {
     },
   ];
   return (
+    <div className="min-h-screen">
+      <Navbar/>
     <div className="pt-32">
       <div className="flex flex-col text-center justify-center">
         <h1 className="text-4xl font-bold mb-4">
@@ -102,6 +106,8 @@ function Page() {
           ))}
         </div>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

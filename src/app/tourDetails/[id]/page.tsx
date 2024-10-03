@@ -10,6 +10,7 @@ import PackageCard from "@/components/PackageCard";
 import tigerImage from "../../../../public/assets/tiger.png";
 import trainImage from "../../../../public/assets/train.png";
 import beachImage from "../../../../public/assets/beach.png";
+import Navbar from "@/components/Navbar";
 
 import Link from "next/link";
 
@@ -23,6 +24,8 @@ import {
 } from "lucide-react";
 
 function Page({ params }) {
+
+  
   const images = [
     "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -188,9 +191,17 @@ function Page({ params }) {
       color: "bg-[#F57552]",
     },
   ];
+  
+
+  // Function to handle button click and navigate to /detailsform
+  const handleBookButton = () => {
+    window.location.href = '/detailsform'; // Navigate to /detailsform
+  };
+
 
   return (
-    <div>
+    <div className="min-h-screen">
+      <Navbar/>
       <div>
         <ImagesSlider className="h-[40rem]" images={images}>
           <motion.div
@@ -216,7 +227,7 @@ function Page({ params }) {
             <button
               className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20
              text-white mx-auto text-center rounded-full relative mt-4"
-            >
+            onClick={handleBookButton}>
               <span>Book this trip</span>
               <div
                 className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent

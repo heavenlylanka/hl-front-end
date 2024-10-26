@@ -1,10 +1,13 @@
 import { Button2 } from '@/components/ui/button2'
 import React from 'react'
 import { Icons } from "@/components/icons"
+import Navbar from "@/components/Navbar";
 
 
 const page = () => {
   return (
+    <div className="min-h-screen">
+      <Navbar/>
     <div className="mx-8 sm:mx-12 md:mx-20 lg:mx-24 xl:mx-56 2xl:mx-64
     my-20 md:my-24 px-6 md:px-8 lg:px-10 py-6 pb-10 border border-black rounded-[14px]">
         <h1 className='text-[20px] font-semibold'>Tour Details</h1>
@@ -173,6 +176,7 @@ const page = () => {
         </Button2>
 
         </form>
+    </div>
     </div>
   )
 }

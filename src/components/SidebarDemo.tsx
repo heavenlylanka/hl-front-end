@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import {
   IconArrowLeft,
   IconBrandTabler,
   IconSettings,
   IconUserBolt,
+  IconLogout,
 } from "@tabler/icons-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -20,7 +21,6 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
       icon: (
         <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
-      
     },
     {
       label: "Profile",
@@ -44,7 +44,30 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
       ),
     },
   ];
+
   const [open, setOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check if the user is logged in by looking for the 'token' in localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token');
+      setIsLoggedIn(!!token); // Set isLoggedIn to true if token exists
+    }
+  }, []);
+
+  const handleLogoutClick = () => {
+    setShowLogoutModal(true); // Show the logout confirmation modal
+  };
+
+  const confirmLogout = () => {
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    setIsLoggedIn(false); // Update the state to reflect the user is logged out
+    setShowLogoutModal(false); // Close the modal
+    window.location.href = '/'; // Redirect to homepage or login page
+  };
+
   return (
     <div
       className={cn(
@@ -62,38 +85,54 @@ export function SidebarDemo({children}:Readonly<{children:React.ReactNode}>) {
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
+
+              {/* Logout Button */}
+              <button
+                onClick={handleLogoutClick}
+                className="flex items-center gap-2 py-2 text-left text-neutral-700 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded-lg transition-all"
+              >
+                <IconLogout className="h-5 w-5 flex-shrink-0" />
+                <span>Logout</span>
+              </button>
             </div>
-          </div>
-          <div>
-            <SidebarLink
-              link={{
-                label: "Manu Arora",
-                href: "#",
-                icon: (
-                  <Image
-                    src="https://assets.aceternity.com/manu.png"
-                    className="h-7 w-7 flex-shrink-0 rounded-full"
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
-                ),
-              }}
-            />
           </div>
         </SidebarBody>
       </Sidebar>
+
       {children}
+
+      {/* Logout confirmation modal */}
+      {showLogoutModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg">
+            <h2 className="text-lg font-bold mb-4">Are you sure you want to logout?</h2>
+            <div className="flex space-x-4">
+              <button
+                onClick={confirmLogout}
+                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 focus:outline-none"
+              >
+                Yes, Logout
+              </button>
+              <button
+                onClick={() => setShowLogoutModal(false)}
+                className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500 focus:outline-none"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
 export const Logo = () => {
   return (
     <Link
       href="/"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
-      
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -104,6 +143,7 @@ export const Logo = () => {
     </Link>
   );
 };
+
 export const LogoIcon = () => {
   return (
     <Link

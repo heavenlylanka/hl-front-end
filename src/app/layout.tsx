@@ -5,8 +5,7 @@ import { Inter as FontSans } from "next/font/google"
 import { Outfit } from "next/font/google";
 import { cn } from "@/lib/utils"
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -42,9 +41,9 @@ export default function RootLayout({
           fontSans.variable
         )}>
         <div className="flex flex-col min-h-[100dvh]">
-          <Navbar />
+          
           {children}
-          <Footer />
+          
         </div>
       </body>
     </html>

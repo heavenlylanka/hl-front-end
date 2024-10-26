@@ -7,10 +7,14 @@ import beachImage from "../../../public/assets/beach.png";
 import leftArrow from "../../../public/assets/left_arrow.png";
 import rightArrow from "../../../public/assets/right_arrow.png";
 import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function Page() {
   const packages = [
     {
+      id: 1,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -19,6 +23,7 @@ function Page() {
       color: "bg-yellow-400",
     },
     {
+      id: 2,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -27,6 +32,7 @@ function Page() {
       color: "bg-green-500",
     },
     {
+      id: 3,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -35,6 +41,7 @@ function Page() {
       color: "bg-[#F57552]",
     },
     {
+      id: 4,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -43,6 +50,7 @@ function Page() {
       color: "bg-yellow-400",
     },
     {
+      id: 5,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -51,6 +59,7 @@ function Page() {
       color: "bg-green-500",
     },
     {
+      id: 6,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -60,6 +69,8 @@ function Page() {
     },
   ];
   return (
+    <div className="min-h-screen">
+      <Navbar/>
     <div className="pt-32">
       <div className="flex flex-col text-center justify-center">
         <h1 className="text-4xl font-bold mb-4">
@@ -79,18 +90,24 @@ function Page() {
         {/* package card */}
         <div className="flex flex-wrap justify-center gap-8 mb-6">
           {packages.map((pkg, index) => (
-            <PackageCard
-              key={index}
-              title={pkg.title}
-              duration={pkg.duration}
-              days={pkg.days}
-              peopleRange={pkg.peopleRange}
-              imageSrc={pkg.imageSrc}
-              color={pkg.color}
-            />
+            <Link key={pkg.id} href={`/tourDetails/${pkg.id}`}>
+          
+                <PackageCard
+                  key={index}
+                  title={pkg.title}
+                  duration={pkg.duration}
+                  days={pkg.days}
+                  peopleRange={pkg.peopleRange}
+                  imageSrc={pkg.imageSrc}
+                  color={pkg.color}
+                />
+       
+            </Link>
           ))}
         </div>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

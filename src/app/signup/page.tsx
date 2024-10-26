@@ -1,8 +1,13 @@
 import SignUpForm from '@/components/SignUpForm';
 import React from 'react';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const Page = () => {
   return (
+    <div className="min-h-screen">
+    <Navbar/>
+
     <div className="min-h-screen bg-cover bg-center bg-[url('/assets/signup_bg.png')] mx-4 mt-24 px-6 rounded-3xl flex flex-col lg:flex-row lg:items-start justify-between">
       
       <div className="pt-16 w-full lg:w-[614px] text-center lg:text-left">
@@ -20,6 +25,8 @@ const Page = () => {
       <div className="w-full lg:w-auto mt-10 lg:mt-0 flex justify-center">
         <SignUpForm />
       </div>
+      </div>
+      <Footer/>
 
     </div>
   );

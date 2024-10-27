@@ -20,11 +20,17 @@ interface BookingItemProps {
 }
 
 const BookingItem: React.FC<BookingItemProps> = ({ title, days, startDate, endDate, price, imageSrc }) => (
-  <div className="flex items-center justify-between p-4">
+  <div className='flex flex-col'>
+    {/*Only for mobile view title to up */}
+    <div className='p-4'>
+      <h3 className="sm:hidden text-lg font-semibold">{title}</h3>
+    </div>
+    {/*main booking History List */}
+    <div className="flex items-center justify-between p-4">
     <div className="flex items-center">
       <Image src={imageSrc} alt="Booking Image" width={50} height={50} className="rounded-xl" />
       <div className="ml-4">
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="hidden sm:block text-lg font-semibold">{title}</h3>
         <p className="text-sm text-gray-500">{days} Days</p>
       </div>
     </div>
@@ -40,6 +46,8 @@ const BookingItem: React.FC<BookingItemProps> = ({ title, days, startDate, endDa
     </div>
     <p className="text-lg font-semibold text-gray-800">{price}$</p>
   </div>
+  </div>
+  
 );
 
 const BookingList: React.FC = () => {

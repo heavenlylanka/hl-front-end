@@ -72,7 +72,7 @@ const PayNowDetails: React.FC<PayNowDetailsProps> = ({
       {/* Pay now Button */}
       <div className='flex justify-end'>
         <Button2
-            variant="secondary"
+            variant="outline"
             className="w-auto bg-[#59AE5B]  text-white flex items-center justify-center"
             >
             Pay Now <MdKeyboardDoubleArrowRight className='h-5 w-5'/>

@@ -5,7 +5,21 @@ import paid_greenmark from '../../public/assets/paid_greenmark.png';
 import { Button2 } from './ui/button2';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-const PayNowDetails: React.FC = () => {
+interface PayNowDetailsProps {
+    promotion: number;
+    taxesAndFees: number;
+    originalPrice: number;
+    discountedPrice: number;
+  }
+
+const PayNowDetails: React.FC<PayNowDetailsProps> = ({  
+    promotion,
+    taxesAndFees,
+    originalPrice,
+    discountedPrice,
+  }) => {
+    const advancePayment = originalPrice * 0.1;
+    const total = advancePayment - promotion + taxesAndFees;
   return (
     <div className="mt-3 rounded-lg space-y-8">
       {/* Package Details */}
@@ -18,8 +32,8 @@ const PayNowDetails: React.FC = () => {
         </div>
         <Image src={paid_greenmark} alt="paid_greenmark"  className="w-6 lg:w-8 mx-8" />
         <div className="text-right">
-          <span className="block text-black font-semibold">US$1000.00</span>
-          <span className="line-through text-[#6B6B6B]">US$13.18</span>
+          <span className="block text-black font-semibold">{`US$${originalPrice.toFixed(2)}`}</span>
+          <span className="line-through text-[#6B6B6B]">{`US$${discountedPrice.toFixed(2)}`}</span>
         </div>
       </div>
 
@@ -27,22 +41,22 @@ const PayNowDetails: React.FC = () => {
       <div className="space-y-2 px-4">
         <div className="flex justify-between">
           <span className="text-[#6B6B6B]">Advance Payment</span>
-          <span className="text-black font-semibold">US$300.00</span>
+          <span className="text-black font-semibold">{`US$${advancePayment.toFixed(2)}`}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-[#6B6B6B]">Promotion</span>
-          <span className="text-[#05A357] font-semibold">-US$13.18</span>
+          <span className="text-[#05A357] font-semibold">{`-US$${promotion.toFixed(2)}`}</span>
         </div>
         <div className="flex justify-between">
           <span className="text-[#6B6B6B] flex items-center justify-center gap-5">
             Taxes & Other fees    
             <span className="ml-1 text-white text-xs bg-[#6B6B6B] bg-opacity-60 rounded-full w-4 h-4 flex items-center justify-center">i</span>
           </span>
-          <span className="text-black font-semibold">US$0.99</span>
+          <span className="text-black font-semibold">{`US$${taxesAndFees.toFixed(2)}`}</span>
         </div>
         <div className="flex justify-between font-bold text-black">
           <span>Total</span>
-          <span>US$13.18</span>
+          <span>{`US$${total.toFixed(2)}`}</span>
         </div>
       </div>
 

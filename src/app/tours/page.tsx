@@ -15,6 +15,7 @@ function Page() {
   const packages = [
     {
       id: 1,
+      id: 1,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -23,6 +24,7 @@ function Page() {
       color: "bg-yellow-400",
     },
     {
+      id: 2,
       id: 2,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
@@ -33,6 +35,7 @@ function Page() {
     },
     {
       id: 3,
+      id: 3,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -41,6 +44,7 @@ function Page() {
       color: "bg-[#F57552]",
     },
     {
+      id: 4,
       id: 4,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
@@ -51,6 +55,7 @@ function Page() {
     },
     {
       id: 5,
+      id: 5,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
       days: 10,
@@ -59,6 +64,7 @@ function Page() {
       color: "bg-green-500",
     },
     {
+      id: 6,
       id: 6,
       title: "Sri Lanka Unveiled",
       duration: "14 Days - Premium",
@@ -90,6 +96,19 @@ function Page() {
         {/* package card */}
         <div className="flex flex-wrap justify-center gap-8 mb-6">
           {packages.map((pkg, index) => (
+            <Link key={pkg.id} href={`/tourDetails/${pkg.id}`}>
+          
+                <PackageCard
+                  key={index}
+                  title={pkg.title}
+                  duration={pkg.duration}
+                  days={pkg.days}
+                  peopleRange={pkg.peopleRange}
+                  imageSrc={pkg.imageSrc}
+                  color={pkg.color}
+                />
+       
+            </Link>
             <Link key={pkg.id} href={`/tourDetails/${pkg.id}`}>
           
                 <PackageCard

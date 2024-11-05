@@ -1,9 +1,11 @@
+'use client';
+
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
 import PayNowDetails from '@/components/PayNowDetails'
 import React from 'react'
 
-const Paynow = () => {
+const Page = () => {
   return (
     <div className='flex flex-col items-center w-full'>
         <Navbar/>
@@ -22,4 +24,4 @@ const Paynow = () => {
   )
 }
 
-export default Paynow
+export default Page

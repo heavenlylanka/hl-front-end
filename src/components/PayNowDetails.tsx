@@ -4,6 +4,7 @@ import credit_card from '../../public/assets/credit_card.png';
 import paid_greenmark from '../../public/assets/paid_greenmark.png';
 import { Button2 } from './ui/button2';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { PayPalButtons,PayPalScriptProvider} from '@paypal/react-paypal-js';
 
 interface PayNowDetailsProps {
     promotion: number;
@@ -20,6 +21,30 @@ const PayNowDetails: React.FC<PayNowDetailsProps> = ({
   }) => {
     const advancePayment = originalPrice * 0.1;
     const total = advancePayment - promotion + taxesAndFees;
+
+    const intialOptions={
+      "clientId": "AZIcZTr8KHiNqTkscw2Sbn8eZ1FYU3sg_D6v3QVjMXzTFcCUxuVMnMpyeHRYdcktv9W-u0oRQmjezS0B",
+      currency:"USD",
+      intent:"capture"
+  };
+
+  const createOrder=(data:any,actions:any)=>{
+      return actions.order.create({
+          purchase_units:[{
+              amount:{
+                  currency_code:"USD",
+                  value:"1"
+              }
+          }]
+      });
+  }
+
+      const onApprove=(data:any,actions:any)=>{
+          return actions.order.capture().then(function(details:any){
+              console.log(details);
+          });
+      }
+     
   return (
     <div className="mt-3 rounded-lg space-y-8">
       {/* Package Details */}
@@ -60,24 +85,17 @@ const PayNowDetails: React.FC<PayNowDetailsProps> = ({
         </div>
       </div>
 
-      {/* Payment Method */}
-      <div className="bg-[#D9D9D9] p-4 rounded-2xl flex items-center justify-between">
-        <div className="flex items-center justify-between w-full">
-          <div className="w-16 flex items-center">
-            <Image src={credit_card} alt="Credit_Card" className="w-full" />
-          </div>
-          <span className="">Select Payment Method</span>
-        </div>
+      <div className='items-center'>
+      <PayPalScriptProvider options={intialOptions}>
+            <PayPalButtons 
+            style={{"layout":"vertical"}}
+            createOrder={(data:any,actions:any)=>createOrder(data,actions)}
+            onApprove={(data:any,actions:any)=>onApprove(data,actions)}
+            />
+        </PayPalScriptProvider>
       </div>
       {/* Pay now Button */}
-      <div className='flex justify-end'>
-        <Button2
-            variant="outline"
-            className="w-auto bg-[#59AE5B]  text-white flex items-center justify-center"
-            >
-            Pay Now <MdKeyboardDoubleArrowRight className='h-5 w-5'/>
-        </Button2>
-      </div>
+      
          
     </div>
   );

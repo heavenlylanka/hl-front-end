@@ -1,6 +1,8 @@
 "use client"; // Add this line at the top
 import React, { useState } from 'react';
 import axios from 'axios';
+import { createUserWithEmailAndPassword, sendEmailVerification,GoogleAuthProvider,signInWithPopup,updateProfile } from "firebase/auth";
+import { auth } from '@/utils/firebase';
 
 const SignUpForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -32,6 +34,15 @@ const SignUpForm: React.FC = () => {
       setError("User already exists or there was an error registering");
     }
   };
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+        const userCredential = await signInWithPopup(auth, provider);
+        console.log(userCredential.user);
+    } catch (error) {
+        console.error("Google login error:", (error as Error).message);
+    }
+};
 
   return (
     <div className='w-full lg:w-[505px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center my-12 lg:my-[100px] p-6 lg:py-[30px]'>
@@ -98,6 +109,20 @@ const SignUpForm: React.FC = () => {
       <div className='flex pt-4 text-[16px]'>
         <p className='font-light'>Already have an Account?</p>
         <a className='font-semibold pl-1 cursor-pointer text-blue-600' href='/login'>Log In</a>
+      </div>
+      <div className="space-x-6 flex justify-center mt-8">
+              <button
+                type="button"
+                className="w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg flex items-center justify-center mb-4"
+                onClick={handleGoogleLogin}
+              >
+                <img
+                  src="https://img.icons8.com/color/16/000000/google-logo.png"
+                  alt="Google icon"
+                  className="mr-2"
+                />
+                Continue with Google
+              </button>
       </div>
     </div>
   );

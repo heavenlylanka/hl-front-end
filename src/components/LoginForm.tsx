@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'; // Import from next/navigation
-
+import { createUserWithEmailAndPassword, sendEmailVerification,GoogleAuthProvider,signInWithPopup,updateProfile } from "firebase/auth";
+import { auth } from '@/utils/firebase';
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -28,6 +29,15 @@ const LoginForm: React.FC = () => {
       setError('Invalid username or password');
     }
   };
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+        const userCredential = await signInWithPopup(auth, provider);
+        console.log(userCredential.user);
+    } catch (error) {
+        console.error("Google login error:", (error as Error).message);
+    }
+};
 
   return (
     <div className='w-full lg:w-[505px] bg-white border-2 rounded-3xl items-center flex flex-col justify-center p-6 lg:p-8 my-12 lg:my-[100px]'>
@@ -69,6 +79,21 @@ const LoginForm: React.FC = () => {
       <div className='flex pt-4 text-[16px] mb-10'>
         <p className='font-light'>Create an account?</p>
         <a className='font-semibold pl-1 cursor-pointer text-blue-600' href='/signup'>Sign Up</a>
+      </div>
+
+      <div className="space-x-6 flex justify-center mt-8">
+              <button
+                type="button"
+                className="w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg flex items-center justify-center mb-4"
+                onClick={handleGoogleLogin}
+              >
+                <img
+                  src="https://img.icons8.com/color/16/000000/google-logo.png"
+                  alt="Google icon"
+                  className="mr-2"
+                />
+                Continue with Google
+              </button>
       </div>
     </div>
   );
